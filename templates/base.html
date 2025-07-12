@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SISTEM INFORMASI SMP TERPADU{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/school_logo.png') }}" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='img/school_logo.png') }}" alt="School Logo" class="school-logo">
+                <h1>Sistem Informasi SMP TERPADU BANDUNG</h1>
+            </div>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('students') }}">Siswa</a>
+                    <a href="{{ url_for('teachers') }}">Guru</a>
+                    <a href="{{ url_for('subjects') }}">Mata Pelajaran</a>
+                    <a href="{{ url_for('schedule') }}">Jadwal</a>
+                    <a href="{{ url_for('logout') }}" class="button logout-btn">Logout ({{ current_user.username }})</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="button login-btn">Login</a>
+                    <a href="{{ url_for('register') }}" class="button register-btn">Registrasi</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SMP TERPADU BANDUNG. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

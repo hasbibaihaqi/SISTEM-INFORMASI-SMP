@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detail Siswa - {{ student.nama }}{% endblock %}
+
+{% block content %}
+    <h2>Detail Siswa: {{ student.nama }}</h2>
+    <div class="detail-card">
+        <p><strong>NIS:</strong> {{ student.nis }}</p>
+        <p><strong>Nama:</strong> {{ student.nama }}</p>
+        <p><strong>Kelas:</strong> {{ student.kelas }}</p>
+        <p><strong>Alamat:</strong> {{ student.alamat }}</p>
+        <p><strong>Telepon:</strong> {{ student.telepon }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+    </div>
+    <p><a href="{{ url_for('students') }}" class="button">Kembali ke Daftar Siswa</a></p>
+{% endblock %}

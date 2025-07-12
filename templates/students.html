@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Daftar Siswa{% endblock %}
+
+{% block content %}
+    <h2>Daftar Siswa</h2>
+    {% if students %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>NIS</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.nis }}</td>
+                    <td>{{ student.nama }}</td>
+                    <td>{{ student.kelas }}</td>
+                    <td><a href="{{ url_for('student_detail', nis=student.nis) }}" class="button small">Detail</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Belum ada data siswa yang terdaftar.</p>
+    {% endif %}
+{% endblock %}

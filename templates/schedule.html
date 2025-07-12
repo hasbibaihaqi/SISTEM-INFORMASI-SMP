@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Jadwal Pelajaran{% endblock %}
+
+{% block content %}
+    <h2>Jadwal Pelajaran Kelas 7A (Contoh)</h2>
+    {% if schedule %}
+        {% for day, lessons in schedule.items() %}
+            <h3>{{ day }}</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Jam</th>
+                        <th>Pelajaran</th>
+                        <th>Kelas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lesson in lessons %}
+                        <tr>
+                            <td>{{ lesson.jam }}</td>
+                            <td>{{ lesson.pelajaran }}</td>
+                            <td>{{ lesson.kelas }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>Belum ada jadwal pelajaran yang tersedia.</p>
+    {% endif %}
+{% endblock %}

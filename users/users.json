@@ -1,0 +1,8 @@
+[
+    {
+        "id": "1",
+        "username": "hasbi",
+        "email": "hasbibaihaqi020@gmail.com",
+        "password_hash": "pbkdf2:sha256:1000000$JJryfBtz6OT2QRhA$399a91eedb940dbae89fceae41d35d7ad1c64c86fa681a372a1c963d4d7fcfa8"
+    }
+]

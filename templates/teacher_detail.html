@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detail Guru - {{ teacher.nama }}{% endblock %}
+
+{% block content %}
+    <h2>Detail Guru: {{ teacher.nama }}</h2>
+    <div class="detail-card">
+        <p><strong>NIP:</strong> {{ teacher.nip }}</p>
+        <p><strong>Nama:</strong> {{ teacher.nama }}</p>
+        <p><strong>Jabatan:</strong> {{ teacher.jabatan }}</p>
+        <p><strong>Mengajar:</strong> {{ teacher.mengajar }}</p>
+        <p><strong>Telepon:</strong> {{ teacher.telepon }}</p>
+        <p><strong>Email:</strong> {{ teacher.email }}</p>
+    </div>
+    <p><a href="{{ url_for('teachers') }}" class="button">Kembali ke Daftar Guru</a></p>
+{% endblock %}

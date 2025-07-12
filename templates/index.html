@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Selamat Datang!{% endblock %}
+
+{% block content %}
+    <h2>Selamat Datang di Sistem Informasi SMP Terpadu!</h2>
+    <p>Ini adalah portal informasi sekolah yang memudahkan Anda mengakses data penting.</p>
+    <div class="dashboard-summary">
+        <div class="summary-card">
+            <h3>Total Siswa</h3>
+            <p>{{ total_students }}</p>
+            <a href="{{ url_for('students') }}" class="button">Lihat Daftar Siswa</a>
+        </div>
+        <div class="summary-card">
+            <h3>Total Guru</h3>
+            <p>{{ total_teachers }}</p>
+            <a href="{{ url_for('teachers') }}" class="button">Lihat Daftar Guru</a>
+        </div>
+        <div class="summary-card">
+            <h3>Mata Pelajaran</h3>
+            <p>{{ total_subjects }}</p>
+            <a href="{{ url_for('subjects') }}" class="button">Lihat Mata Pelajaran</a>
+        </div>
+    </div>
+    <p>Gunakan menu navigasi di atas untuk menjelajahi informasi sekolah.</p>
+{% endblock %}
